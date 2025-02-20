@@ -1,0 +1,72 @@
+1. Project Overview Goal: A mobile platform for Android & iOS that supports local merchants in Asian countries. The app aims to facilitate trade within each country as well as between Asian countries. Customers can purchase products while merchants efficiently manage their sales.
+Revenue Model:
+5% commission per sale.
+Technology Stack:
+    • Frontend: React Native with Expo
+    • Backend: Node.js with Express
+    • Database: PostgreSQL (including image & user data storage)
+    • Authentication: Supabase Auth or custom JWT authentication
+  
+
+2. Core Features of the Platform
+For businesses that want to sell products.
+    • Dashboard with sales statistics & analytics
+    • Product management: Add, edit & delete products
+    • Inventory & order management
+    • Customer support & messaging system
+    • Payment processing & commission collection
+    
+B) Customer App (B2C)
+For end-users purchasing products.
+    • Product catalog with search & filter functions
+    • Product detail page with reviews & merchant info
+    • Shopping cart & checkout with multiple payment methods
+    • Order tracking & return management
+    • Customer account for order history & profile management
+
+3. Technical Implementation
+Database Structure (PostgreSQL)
+Since we store images & user data directly in PostgreSQL, we use BYTEA fields for images.
+Table Structure:
+Users (Merchants & Customers)
+    • ID (UUID)
+    • Name, Email, Password (encrypted)
+    • Role (Merchant/Customer)
+    • Profile Picture (BYTEA)
+Products
+    • ID, Name, Description, Price
+    • Merchant ID (linked to merchant)
+    • Images (BYTEA)
+Orders
+    • ID, Customer ID, Merchant ID
+    • Product IDs, Total Price, Status
+Payments
+    • ID, Order ID, Payment Status
+    • Commission, Payout to Merchant
+Returns
+    • ID, Order ID, Reason, Status
+
+4. Business Model & Monetization
+    • 5% commission per sale
+    • Premium features for merchants (e.g., better placements, ads, advanced analytics)
+    • Paid advertisements for merchant products
+
+5. Development Plan
+Phase 1: MVP (Minimal Viable Product)
+Duration: 2-3 months
+✅ User registration & login (stored in PostgreSQL)
+✅ Merchant portal: Add products, view sales
+✅ Customer app: Browse products, shopping cart & checkout
+✅ Payment system with Stripe or PayPal
+✅ Use PostgreSQL for product & user data
+Phase 2: Enhancements & Optimization
+Duration: 3-6 months
+✅ Add return management
+✅ Merchant analytics with charts
+✅ Implement order tracking
+✅ Integrate more payment methods
+Phase 3: Scaling & Growth
+Duration: 6+ months
+✅ Develop advertising & marketing strategy
+✅ Offer premium features for merchants
+✅ Expand into more Asian markets
